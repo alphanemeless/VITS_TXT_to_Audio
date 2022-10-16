@@ -12,9 +12,9 @@
  - [Colab, original by me](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)
 
 # How to use
-Windows:Run txt_to_audio_win.py
+- Windows:Run txt_to_audio_win.py
 
-Linux:Run txt_to_audio_linux.py
+- Linux:Run txt_to_audio_linux.py
 ```
 Path of a VITS model: D:\Download\243_epochs.pth
 Path of a Json config file: D:\Download\config.json
@@ -33,9 +33,9 @@ To concat audio files,you need to install ffmpeg first
 
 Install:
 
-Windows: download [ffmpeg](https://ffmpeg.org/) and decompress it
+- Windows: download [ffmpeg](https://ffmpeg.org/) and decompress it
 
-Linux: sudo apt install ffmpeg
+- Linux: sudo apt install ffmpeg
 
 ```
 Windows:
