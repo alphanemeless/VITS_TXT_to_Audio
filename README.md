@@ -39,7 +39,7 @@ Install:
 
 ```
 Windows:
-#Need input ffmpeg's bin path
+#Need to input ffmpeg's bin path
 Do you want to concat all the wavfiles?(need ffmpeg)y or n:y
 input bin path in ffmpeg folder:D:\ffmpeg\bin
 create mylist.txt success
@@ -48,7 +48,7 @@ copy silence audio success
 
 ```
 Linux:
-#Need install ffmpeg first
+#Need to install ffmpeg first
 Do you want to concat all the wavfiles?(need ffmpeg)y or n:y
 create mylist.txt success
 copy silence audio success
