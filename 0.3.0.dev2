@@ -1,0 +1,6 @@
+Found existing installation: openjtalk 0.3.0.dev2
+Uninstalling openjtalk-0.3.0.dev2:
+  Would remove:
+    d:\program_for_code\anaconda\envs\mypython391\lib\site-packages\openjtalk-0.3.0.dev2.dist-info\*
+    d:\program_for_code\anaconda\envs\mypython391\lib\site-packages\pyopenjtalk\*
+Proceed (Y/n)?   Successfully uninstalled openjtalk-0.3.0.dev2

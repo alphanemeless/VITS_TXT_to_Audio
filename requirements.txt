@@ -1,0 +1,15 @@
+numba
+librosa
+numpy==1.22.4
+scipy
+torch
+Unidecode
+openjtalk
+pyopenjtalk
+jamo
+pypinyin
+inflect
+eng_to_ipa
+ko_pron
+cn2an
+jieba
