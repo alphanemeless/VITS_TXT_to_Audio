@@ -1,5 +1,5 @@
 # Forked from
-- [MoeGoe_GUI](https://github.com/CjangCjengh/MoeGoe_GUI)
+- [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
 
 # What is this
  This is a convenient tool for generating audio files
@@ -7,6 +7,9 @@
  You can put all the content in a txt file, and the program will automatically generate audio files
  
  When all the files have been generated, the program will use ffmpeg to concat them
+ 
+ You can use it on Google Colab:
+ - [Colab, original by me](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)
 
 # How to use
 Windows:Run txt_to_audio_win.py
