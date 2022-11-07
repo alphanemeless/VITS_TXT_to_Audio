@@ -10,6 +10,14 @@
  
  You can use it on Google Colab:
  - [Colab, original by me](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)
+ 
+ 这是一个便利的VITS语音生成工具
+ 
+ 你可以将所有的文本放进一个txt文件中，然后程序会自动对文本生成音频
+ 
+ 当所有音频生成完毕后，程序会使用ffmpeg将音频文件连接起来，输出一个长音频文件
+ 
+ 你可以在[Colab](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)的Demo上尝试一下：
 
 # How to use
 - Windows:Run txt_to_audio_win.py
