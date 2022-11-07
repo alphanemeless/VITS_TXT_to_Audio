@@ -16,6 +16,9 @@ from scipy.io.wavfile import write
 
 from my_tools import make_ffmpeg_outputfile
 
+import basicsr
+import os
+
 def get_text(text, hps, cleaned=False):
     if cleaned:
         text_norm = text_to_sequence(text, hps.symbols, [])
@@ -34,6 +37,39 @@ def ask_if_continue():
             break
         elif answer == 'n':
             sys.exit(0)
+
+
+def install(path):
+    from basicsr.utils.download_util import load_file_from_url
+    from zipfile import ZipFile
+
+    ffmpeg_url = "https://github.com/GyanD/codexffmpeg/releases/download/5.1.1/ffmpeg-5.1.1-full_build.zip"
+    ffmpeg_dir = os.path.join(path, "ffmpeg")
+
+    ckpt_path = load_file_from_url(url=ffmpeg_url, model_dir=ffmpeg_dir)
+
+    if not os.path.exists(os.path.abspath(os.path.join(ffmpeg_dir, "ffmpeg.exe"))):
+        with ZipFile(ckpt_path, "r") as zipObj:
+            listOfFileNames = zipObj.namelist()
+            for fileName in listOfFileNames:
+                if "/bin/" in fileName:
+                    zipObj.extract(fileName, ffmpeg_dir)
+        os.rename(
+            os.path.join(ffmpeg_dir, listOfFileNames[0][:-1], "bin", "ffmpeg.exe"),
+            os.path.join(ffmpeg_dir, "ffmpeg.exe"),
+        )
+        os.rename(
+            os.path.join(ffmpeg_dir, listOfFileNames[0][:-1], "bin", "ffplay.exe"),
+            os.path.join(ffmpeg_dir, "ffplay.exe"),
+        )
+        os.rename(
+            os.path.join(ffmpeg_dir, listOfFileNames[0][:-1], "bin", "ffprobe.exe"),
+            os.path.join(ffmpeg_dir, "ffprobe.exe"),
+        )
+
+        os.rmdir(os.path.join(ffmpeg_dir, listOfFileNames[0][:-1], "bin"))
+        os.rmdir(os.path.join(ffmpeg_dir, listOfFileNames[0][:-1]))
+    return
 
 
 def print_speakers(speakers):
@@ -164,19 +200,19 @@ if __name__ == '__main__':
 
         file_number = 1
 
-        flag = input("Do you want to set start number of wav file?y or n:")
-        if flag == "y":
-            set_number = input('wav file start number: ')
-            try:
-                set_number = int(set_number)
-                file_number = set_number
-            except:
-                print("input number:", set_number, "is Invild")
-        else:
-            pass
+        # flag = input("Do you want to set start number of wav file?y or n:")
+        # if flag == "y":
+        #     set_number = input('wav file start number: ')
+        #     try:
+        #         set_number = int(set_number)
+        #         file_number = set_number
+        #     except:
+        #         print("input number:", set_number, "is Invild")
+        # else:
+        #     pass
 
         for class_fromtxt in class_from_txt_list:
-            str_file_number = str(file_number).zfill(4)
+            str_file_number = str(file_number).zfill(5)
             try:
                 output_path_name = output_path + "/" + str_file_number + ".wav"
                 my_voice_maker(class_fromtxt.seq, class_fromtxt.text, output_path_name)
@@ -189,7 +225,7 @@ if __name__ == '__main__':
 
         if class_get_loss_list:
             for class_loss in class_get_loss_list:
-                str_file_number_loss = str(class_loss.filenumber).zfill(4)  # the insufficient digits are filled with zeros
+                str_file_number_loss = str(class_loss.filenumber).zfill(5)  # the insufficient digits are filled with zeros
                 try:
                     output_path_name2 = output_path + "/" + str_file_number_loss + ".wav"
                     my_voice_maker(class_loss.seq, class_loss.text, output_path_name2)
@@ -199,16 +235,24 @@ if __name__ == '__main__':
                     class_get_loss_list.append(class_file_loss2)
 
         print("Voice Generated Sucessful")
-        flag2 = input("Do you want to concat all the wavfiles?(need ffmpeg)y or n:")
-        if flag2 == "y":
-            ffmpeg_path = input('input bin path in ffmpeg folder(eg:D:/ffmpeg/bin) :')
-            # silent_audiofile_path = input('input the path of silence audio file(you can find it in directory silence): ')
-            silent_audiofile_path = "silent/silent-audio07_re_32bit.wav"
-            make_ffmpeg_outputfile.use_ffmpeg_make_output_file(wav_raw_path=output_path,
-                                                               silent_audiofile_path=silent_audiofile_path,
-                                                               ffmpeg_path=ffmpeg_path)
-            # print("The console output of ffmpeg is red,no need to worry")
-            print("concat successed")
-        else:
-            pass
+        while True:
+            flag2 = input("Do you want to concat all the wavfiles?(y or n):")
+            if flag2 == "y":
+
+                script_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+                path = script_path
+                install(path)
+
+                # ffmpeg_path = input('input bin path in ffmpeg folder(eg:D:/ffmpeg/bin) :')
+                ffmpeg_path = os.path.abspath("../ffmpeg")
+                # silent_audiofile_path = input('input the path of silence audio file(you can find it in directory silence): ')
+                silent_audiofile_path = "silent/silent-audio07_re_32bit.wav"
+                make_ffmpeg_outputfile.use_ffmpeg_make_output_file(wav_raw_path=output_path,
+                                                                   silent_audiofile_path=silent_audiofile_path,
+                                                                   ffmpeg_path=ffmpeg_path)
+                # print("The console output of ffmpeg is red,no need to worry")
+                print("concat successed")
+                break
+            elif flag2 == "n":
+                break
         ask_if_continue()
