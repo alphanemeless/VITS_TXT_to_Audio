@@ -200,8 +200,8 @@ if __name__ == '__main__':
 
         print("Voice Generated Sucessful")
         while True:
+            flag2 = input("Do you want to concat all the wavfiles?(y or n):")
             if flag2 == "y":
-                flag2 = input("Do you want to concat all the wavfiles?(y or n):")
                 silent_audiofile_path = "silent/silent-audio07_re_32bit.wav"
                 make_ffmpeg_outputfile.use_ffmpeg_make_output_file_linux(wav_raw_path=output_path,
                                                                    silent_audiofile_path=silent_audiofile_path)
