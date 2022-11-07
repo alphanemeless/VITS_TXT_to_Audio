@@ -164,19 +164,19 @@ if __name__ == '__main__':
 
         file_number = 1
 
-        flag = input("Do you want to set start number of wav file?y or n:")
-        if flag == "y":
-            set_number = input('wav file start number: ')
-            try:
-                set_number = int(set_number)
-                file_number = set_number
-            except:
-                print("input number:", set_number, "is Invild")
-        else:
-            pass
+        # flag = input("Do you want to set start number of wav file?y or n:")
+        # if flag == "y":
+        #     set_number = input('wav file start number: ')
+        #     try:
+        #         set_number = int(set_number)
+        #         file_number = set_number
+        #     except:
+        #         print("input number:", set_number, "is Invild")
+        # else:
+        #     pass
 
         for class_fromtxt in class_from_txt_list:
-            str_file_number = str(file_number).zfill(4)
+            str_file_number = str(file_number).zfill(5)
             try:
                 output_path_name = output_path + "/" + str_file_number + ".wav"
                 my_voice_maker(class_fromtxt.seq, class_fromtxt.text, output_path_name)
@@ -189,7 +189,7 @@ if __name__ == '__main__':
 
         if class_get_loss_list:
             for class_loss in class_get_loss_list:
-                str_file_number_loss = str(class_loss.filenumber).zfill(4)  # the insufficient digits are filled with zeros
+                str_file_number_loss = str(class_loss.filenumber).zfill(5)  # the insufficient digits are filled with zeros
                 try:
                     output_path_name2 = output_path + "/" + str_file_number_loss + ".wav"
                     my_voice_maker(class_loss.seq, class_loss.text, output_path_name2)
@@ -199,11 +199,14 @@ if __name__ == '__main__':
                     class_get_loss_list.append(class_file_loss2)
 
         print("Voice Generated Sucessful")
-        flag2 = input("Do you want to concat all the wavfiles?(need ffmpeg)y or n:")
-        if flag2 == "y":
-            silent_audiofile_path = "silent/silent-audio07_re_32bit.wav"
-            make_ffmpeg_outputfile.use_ffmpeg_make_output_file_linux(wav_raw_path=output_path,
-                                                               silent_audiofile_path=silent_audiofile_path)
-        else:
-            pass
+        while True:
+            if flag2 == "y":
+                flag2 = input("Do you want to concat all the wavfiles?(y or n):")
+                silent_audiofile_path = "silent/silent-audio07_re_32bit.wav"
+                make_ffmpeg_outputfile.use_ffmpeg_make_output_file_linux(wav_raw_path=output_path,
+                                                                   silent_audiofile_path=silent_audiofile_path)
+                print("concat successed")
+                break
+            elif flag2 == "n":
+                break
         ask_if_continue()
