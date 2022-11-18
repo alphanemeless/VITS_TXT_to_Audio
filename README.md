@@ -1,4 +1,4 @@
-# Forked from
+# VITS_TXT_to_Audio
 - [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
 - [English_README](https://github.com/alphanemeless/VITS_TXT_to_Audio/blob/main/EN_README.md)
 
