@@ -1,5 +1,7 @@
-# Forked from
+# VITS_TXT_to_Audio
 - [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
+
+  Modified from MoeGoe, thanks to CjangCjengh's great work
 
 # What is this
  This is a convenient tool for generating audio files
@@ -33,12 +35,11 @@ To concat audio files,you need to install ffmpeg first
 
 Install:
 
-- Windows: download [ffmpeg](https://ffmpeg.org/)
+- Windows: download [ffmpeg](https://ffmpeg.org/) (Automatically download when first use)
 
 - Linux: sudo apt install ffmpeg
 
 ```
-Linux:
 #Need to install ffmpeg first
 Do you want to concat all the wavfiles?(y or n):y
 create mylist.txt success
