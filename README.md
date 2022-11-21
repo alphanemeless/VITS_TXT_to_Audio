@@ -4,20 +4,18 @@
 
 # 简介
  
- 这是一个VITS音频生成工具，在MoeGoe的基础上修改而来
+ 这是一个VITS音频生成工具，加入了字幕生成功能。可以在生成音频的同时，自动生成srt字幕
  
  你可以将大量的文本放进一个txt文件中，然后程序会自动对文本生成音频
  
  txt文件中的每一行都会生成一个音频文件
  
- 当所有音频生成完毕后，会使用[ffmpeg](https://ffmpeg.org/)将音频文件连接起来，输出一个长音频文件
+ 当所有音频生成完毕后，会使用 pydub 将音频文件连接起来，输出一个长音频文件，同时还会创建与之匹配的 srt 字幕
  
- 你可以在[Colab](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)的Demo上尝试一下：
+ 你可以在 [Colab](https://colab.research.google.com/drive/11rJasgCQah-VhhPrC4J8mM5UoWQp6oID?usp=sharing) 的Demo上尝试一下：
 
 # 如何使用
-- Windows: 运行 txt_to_audio_win.py
-
-- Linux: 运行 txt_to_audio_linux.py
+- 运行 txt_to_audio.py
 ```
 Path of a VITS model: D:\Download\243_epochs.pth
 Path of a Json config file: D:\Download\config.json
@@ -32,9 +30,9 @@ Do you want to set start number of wav file?y or n:(if you don't want to set,inp
 你可以在[pytorch](https://pytorch.org/get-started/locally/)找到适用于你的CUDA版本torch
 
 ## 连接音频
-- 本工具使用ffmpeg来连接音频，第一次使用该功能，会自动从ffmpeg下载相应的组件
+- 为了简化代码，本工具将旧版本中由 ffmpeg 实现的音频连接功能改写为了由 pydub实现，旧版代码可以在 [ffmpeg_concat](https://github.com/alphanemeless/VITS_TXT_to_Audio/tree/ffmpeg_concat) 分支中找到
 
-- 如果您使用linux系统，可以使用 sudo apt install ffmpeg 命令来安装
+- 在连接音频成功后，会自动生成 srt 字幕
 
 ```
 #default output
@@ -77,9 +75,10 @@ Sample.txt:
 0008.wav
 0009.wav
 0010.wav
-mylist.txt
-silent-audio07_re_32bit.wav
-test_all.wav
+subtitle.srt
+concat_all.wav
 
-#test_all.wav  concat all audio files
+
+#subtitle.srt    the subtitle of concat_all.wav
+#concat_all.wav  concat all audio files
 ```
