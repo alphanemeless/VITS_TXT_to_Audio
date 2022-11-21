@@ -13,7 +13,8 @@
  
  当所有音频生成完毕后，会使用 pydub 将音频文件连接起来，输出一个长音频文件，同时还会创建与之匹配的srt字幕
  
- 你可以在 [Colab](https://colab.research.google.com/drive/11rJasgCQah-VhhPrC4J8mM5UoWQp6oID?usp=sharing) 的Demo上尝试一下：
+ 你可以在Google Colab的Demo上尝试一下：
+ - [Colab, original by me](https://colab.research.google.com/drive/11rJasgCQah-VhhPrC4J8mM5UoWQp6oID?usp=sharing)
 
 # 如何使用
 - 运行 txt_to_audio.py
