@@ -1,6 +1,6 @@
 # VITS_TXT_to_Audio
 - [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
-- [English_README](https://github.com/alphanemeless/VITS_TXT_to_Audio/blob/main/EN_README.md)
+- [English_README](https://github.com/alphanemeless/VITS_TXT_to_Audio/blob/ffmpeg_concat/EN_README.md)
 
 # 简介
  
