@@ -1,22 +1,19 @@
 # VITS_TXT_to_Audio
-- [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
-
-  Modified from MoeGoe, thanks to CjangCjengh's great work
+-  Modified from [MoeGoe](https://github.com/CjangCjengh/MoeGoe), thanks to CjangCjengh's great work
+- Update: Added subtitle generation,use pydub to rewrite some functions implemented by ffmpeg in the old version
 
 # What is this
  This is a convenient tool for generating audio files
 
  You can put all the content in a txt file, and the program will automatically generate audio files
  
- When all the files have been generated, the program will use ffmpeg to concat them
+ When all the files have been generated, the program will use pydub to concat them and create srt subtitle
  
  You can use it on Google Colab:
- - [Colab, original by me](https://colab.research.google.com/drive/1ha1t0vVO0Bg-2vQXyv0wm5VaMt_yDGtZ?usp=sharing)
+ - [Colab, original by me](https://colab.research.google.com/drive/11rJasgCQah-VhhPrC4J8mM5UoWQp6oID?usp=sharing)
 
 # How to use
-- Windows:Run txt_to_audio_win.py
-
-- Linux:Run txt_to_audio_linux.py
+- Run txt_to_audio.py
 ```
 Path of a VITS model: D:\Download\243_epochs.pth
 Path of a Json config file: D:\Download\config.json
@@ -30,14 +27,12 @@ Please try to reinstall torch
 
 Find a torch version suitable for your CUDA
 in [pytorch](https://pytorch.org/get-started/locally/)
-## Concat audio files
-To concat audio files,you need to install ffmpeg first
+## Concat audio files and create subtitle
+To simplify the code, I rewrites the concat function implemented by ffmpeg
 
-Install:
+The old version code can be found in [ffmpeg_concat](https://github.com/alphanemeless/VITS_TXT_to_Audio/tree/ffmpeg_concat) branch
 
-- Windows: download [ffmpeg](https://ffmpeg.org/) (Automatically download when first use)
-
-- Linux: sudo apt install ffmpeg
+After concat successful, srt subtitle will be automatically generated
 
 ```
 #Need to install ffmpeg first
@@ -79,5 +74,6 @@ mylist.txt
 silent-audio07_re_32bit.wav
 test_all.wav
 
-#test_all.wav  concat all audio files
+#subtitle.srt    the subtitle of concat_all.wav
+#concat_all.wav  concat all audio files
 ```
