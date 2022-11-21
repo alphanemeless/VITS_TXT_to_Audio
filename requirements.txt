@@ -14,3 +14,4 @@ ko_pron
 cn2an
 jieba
 basicsr
+pydub
