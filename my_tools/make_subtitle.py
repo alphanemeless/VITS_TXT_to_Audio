@@ -40,6 +40,6 @@ def create_sub(wav_path,txt_path,silent_audiofile_path):
             total_duration = total_duration + duration + silent_duration
             count = count + 1
 
-    with open(wav_path + "\\" + "subtitle.srt", "w", encoding="utf8") as f:
+    with open(wav_path + "/" + "subtitle.srt", "w", encoding="utf8") as f:
         f.write("\n".join(txt_str))
-    output_sound.export(wav_path + "\\" + "concat_all.wav", format="wav")
+    output_sound.export(wav_path + "/" + "concat_all.wav", format="wav")
