@@ -1,6 +1,7 @@
 # VITS_TXT_to_Audio
 - [MoeGoe](https://github.com/CjangCjengh/MoeGoe)
 - [English_README](https://github.com/alphanemeless/VITS_TXT_to_Audio/blob/main/EN_README.md)
+- 增加字幕生成功能，优化代码，用pydub重写了旧版本中由ffmpeg实现的部分功能
 
 # 简介
  
