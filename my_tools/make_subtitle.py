@@ -17,7 +17,7 @@ def create_sub(wav_path,txt_path,silent_audiofile_path):
     print(words)
 
     def num2timestr(num):
-        return str(int(int(num) / 3600)) + ':' + str(int(int(num) / 60)) + ':' + str(int(int(num) % 60)) + ',' + str(int(int(num * 10000000) % 10000000)).zfill(7)
+        return str(int(int(num) / 3600)).zfill(2) + ':' + str(int(int(num) / 60)).zfill(2) + ':' + str(int(int(num) % 60)).zfill(2) + ',' + str(int(int(num * 1000) % 1000)).zfill(3)
 
     silent_sound = AudioSegment.from_wav(silent_audiofile_path)
     silent_duration = silent_sound.duration_seconds
