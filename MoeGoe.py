@@ -93,7 +93,7 @@ if __name__ == '__main__':
     _ = net_g_ms.eval()
     utils.load_checkpoint(model, net_g_ms)
     
-    if n_symbols==0:
+    if n_symbols!=0:
         while True:
             choice = input('TTS or VC? (t/v):')
             if choice == 't':
