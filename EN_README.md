@@ -27,7 +27,7 @@ Please try to reinstall torch
 
 Find a torch version suitable for your CUDA
 in [pytorch](https://pytorch.org/get-started/locally/)
-## Concat audio files and create subtitle
+# Concat audio files and create subtitle
 To simplify the code, I rewrites the concat function implemented by ffmpeg
 
 The old version code can be found in [ffmpeg_concat](https://github.com/alphanemeless/VITS_TXT_to_Audio/tree/ffmpeg_concat) branch
@@ -41,7 +41,7 @@ create mylist.txt success
 copy silence audio success
 ```
 
-## TXT File Sample
+# TXT File Sample
 You need to separate the speaker number from the text content with |
 
 Sample.txt:
@@ -58,7 +58,7 @@ Sample.txt:
 5|では、本日はここまで。
 ```
 
-## Output Sample
+# Output Sample
 ```
 0001.wav
 0002.wav
