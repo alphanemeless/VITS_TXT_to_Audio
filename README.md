@@ -31,7 +31,7 @@ Do you want to set start number of wav file?y or n:(if you don't want to set,inp
 
 你可以在[pytorch](https://pytorch.org/get-started/locally/)找到适用于你的CUDA版本torch
 
-## 连接音频和生成字幕
+# 连接音频和生成字幕
 - 为了简化代码，本工具将旧版本中由 ffmpeg 实现的音频连接功能，改写成由 pydub实现，旧版代码可以在 [ffmpeg_concat](https://github.com/alphanemeless/VITS_TXT_to_Audio/tree/ffmpeg_concat) 分支中找到
 
 - 在连接音频成功后，会自动生成 srt 字幕
@@ -45,7 +45,7 @@ copy silence audio success
 
 在silent文件夹中，提供了一个时长0.7秒的静音文件，用于在不同句子之间，增加语音间隔
 
-## TXT文件样例
+# TXT文件样例
 你需要将说话人的编号和文本内容隔开
 
 分割符号为 | 
@@ -65,7 +65,7 @@ Sample.txt:
 ```
 建议对文本进行预处理，尽量删除其中的空行和特殊符号
 
-## 样例输出
+# 样例输出
 ```
 0001.wav
 0002.wav
